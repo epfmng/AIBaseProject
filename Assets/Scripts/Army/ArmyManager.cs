@@ -8,7 +8,7 @@ using UnityEngine.AI;
 using UnityEngine.Events;
 
 /*
-Préparer un terrain où toutes les terrasses sont accessibles
+Prï¿½parer un terrain oï¿½ toutes les terrasses sont accessibles
 */
 
 public abstract class ArmyManager : MonoBehaviour
@@ -23,7 +23,7 @@ public abstract class ArmyManager : MonoBehaviour
 
     [SerializeField] UnityEvent m_OnArmyIsDead;
 
-    protected List<T> GetAllEnemiesOfType<T>(bool sortRandom) where T : ArmyElement
+    public List<T> GetAllEnemiesOfType<T>(bool sortRandom) where T : ArmyElement
     {
         var enemies = GameObject.FindObjectsOfType<T>().Where(element => !element.gameObject.CompareTag(m_ArmyTag)).ToList();
         if (sortRandom) enemies.Sort((a, b) => Random.value.CompareTo(.5f));
@@ -49,7 +49,7 @@ public abstract class ArmyManager : MonoBehaviour
     // Start is called before the first frame update
     public virtual IEnumerator Start()
     {
-        yield return null; // on attend une frame que tous les objets aient été instanciés ...
+        yield return null; // on attend une frame que tous les objets aient ï¿½tï¿½ instanciï¿½s ...
 
         GameObject[] allArmiesElements = GameObject.FindGameObjectsWithTag(m_ArmyTag);
         foreach (var item in allArmiesElements)
