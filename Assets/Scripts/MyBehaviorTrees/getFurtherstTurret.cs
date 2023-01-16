@@ -13,6 +13,8 @@ public class getFurtherstTurret : Action
 	Transform tMax = null;
     float maxDist = 0;
 
+	public float limitDist;
+
 	public override void OnAwake()
 	{
 		m_ArmyElement =(IArmyElement) GetComponent(typeof(IArmyElement));
@@ -27,7 +29,7 @@ public class getFurtherstTurret : Action
 			{
 				if (!(t && t.transform)) continue;
 				float dist = Vector3.Distance(t.transform.position, currentPos);
-				if (dist > maxDist)
+				if (dist > maxDist && dist < limitDist)
 				{
 					tMax = t.transform;
 					maxDist = dist;

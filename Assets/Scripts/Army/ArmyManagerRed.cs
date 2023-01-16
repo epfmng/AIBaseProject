@@ -8,6 +8,7 @@ using UnityEngine.AI;
 
 public class ArmyManagerRed : ArmyManager
 {
+
 	public override void ArmyElementHasBeenKilled(GameObject go)
 	{
 		base.ArmyElementHasBeenKilled(go);
@@ -22,7 +23,13 @@ public class ArmyManagerRed : ArmyManager
         ComputeStatistics(ref nDrones, ref nTurrets, ref health);
 		GUIUtility.systemCopyBuffer = "1\t" + ((int)Timer.Value).ToString() + "\t"+nDrones.ToString()+"\t"+nTurrets.ToString()+"\t"+health.ToString();
 		
-		RefreshHudDisplay(); //pour une dernière mise à jour en cas de victoire
+		RefreshHudDisplay(); //pour une derniï¿½re mise ï¿½ jour en cas de victoire
 	}
+
+	public T GetElement<T>() where T : ArmyElement
+    {
+        var enemies = GetAllEnemiesOfType<T>(false);
+        return enemies.FirstOrDefault();
+    }
 
 }
