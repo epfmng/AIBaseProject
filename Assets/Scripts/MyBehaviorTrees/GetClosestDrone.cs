@@ -34,7 +34,7 @@ public class GetClosestDrone : Action
 		}
 
 		
-		target.Value = tMin.transform;
+		target.Value = tMin;
 		if (target.Value != null) return TaskStatus.Success;
 		else return TaskStatus.Failure;
 		

@@ -22,19 +22,23 @@ public class getFurtherstTurret : Action
 	{
 		turrets = m_ArmyElement.ArmyManager.GetAllEnemiesOfType<Turret>(true).ToArray();
 		Vector3 currentPos = transform.position;
-
-		foreach (Turret t in turrets)
-		{
-			float dist = Vector3.Distance(t.transform.position, currentPos);
-			if (dist > maxDist)
+		if (target.Value!=null) {
+			foreach (Turret t in turrets)
 			{
-				tMax = t.transform;
-				maxDist = dist;
+				if (!(t && t.transform)) continue;
+				float dist = Vector3.Distance(t.transform.position, currentPos);
+				if (dist > maxDist)
+				{
+					tMax = t.transform;
+					maxDist = dist;
+				}
+				else tMax = t.transform;
 			}
 		}
+		else return TaskStatus.Failure;
 
 		
-		target.Value = tMax.transform;
+		target.Value = tMax;
 		if (target.Value != null) return TaskStatus.Success;
 		else return TaskStatus.Failure;
 		

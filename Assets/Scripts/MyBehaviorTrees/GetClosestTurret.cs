@@ -25,16 +25,18 @@ public class GetClosestTurret : Action
 
 		foreach (Turret t in turrets)
 		{
+			if (!(t && t.transform)) continue;
 			float dist = Vector3.Distance(t.transform.position, currentPos);
 			if (dist < minDist)
 			{
 				tMin = t.transform;
 				minDist = dist;
 			}
+			else tMin = t.transform;
 		}
 
 		
-		target.Value = tMin.transform;
+		target.Value = tMin;
 		if (target.Value != null) return TaskStatus.Success;
 		else return TaskStatus.Failure;
 		
