@@ -11,24 +11,33 @@ public class myIsWithinDistanceTurret : Action
 
     public SharedTransform target;
 
-    //IArmyElement m_ArmyElement;
+    IArmyElement m_ArmyElement;
+    
 
 	public override void OnStart()
 	{
-        //m_ArmyElement =(IArmyElement) GetComponent(typeof(IArmyElement));
+        m_ArmyElement =(IArmyElement) GetComponent(typeof(IArmyElement));
 	}
 
     public override TaskStatus OnUpdate()
     {
-        //if (!m_ArmyElement.ArmyManager) return TaskStatus.Running;
+        if (!m_ArmyElement.ArmyManager) return TaskStatus.Running;
+        ArmyManagerRed armyRed = m_ArmyElement.ArmyManager as ArmyManagerRed;
 
         float enemyDistance = 0;
 
-        //ArmyManagerRed armyRed = m_ArmyElement.ArmyManager as ArmyManagerRed;
-        //Turret turret = armyRed.GetElement<Turret>();
-        
-        // Calculer la distance entre l'ennemi et l'objet qui exécute l'action
-        if (target != null) enemyDistance = Vector3.Distance(transform.position, target.Value.position);
+        if (target.Value != null)
+        {
+           
+            enemyDistance = Vector3.Distance(transform.position, target.Value.position);
+            
+            if (target.Value.position == null)
+            {
+                Turret newTarget = armyRed.GetElement<Turret>();
+                if (newTarget != null) enemyDistance = Vector3.Distance(transform.position, newTarget.transform.position);
+            }
+        }
+
 
         // Si l'ennemi est à la distance spécifiée, terminer l'action avec succès
         if (enemyDistance <= maxDistance) return TaskStatus.Success;

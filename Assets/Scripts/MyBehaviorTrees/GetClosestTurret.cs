@@ -20,7 +20,10 @@ public class GetClosestTurret : Action
 
 	public override TaskStatus OnUpdate()
 	{
-		turrets = m_ArmyElement.ArmyManager.GetAllEnemiesOfType<Turret>(true).ToArray();
+		if (!m_ArmyElement.ArmyManager) return TaskStatus.Running;
+		ArmyManagerRed armyRed = m_ArmyElement.ArmyManager as ArmyManagerRed;
+
+		turrets = armyRed.GetAllEnemiesOfType<Turret>(true).ToArray();
 		Vector3 currentPos = transform.position;
 
 		foreach (Turret t in turrets)

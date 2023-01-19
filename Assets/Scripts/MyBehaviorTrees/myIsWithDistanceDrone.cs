@@ -10,24 +10,29 @@ public class myIsWithinDistanceDrone : Action
     public float maxDistance;
 
     public SharedTransform target;
-    
-    //IArmyElement m_ArmyElement;
+
+    IArmyElement m_ArmyElement;
+
 
 	public override void OnStart()
 	{
-        //m_ArmyElement =(IArmyElement) GetComponent(typeof(IArmyElement));
+        m_ArmyElement =(IArmyElement) GetComponent(typeof(IArmyElement));
 	}
 
     public override TaskStatus OnUpdate()
     {
-        //if (!m_ArmyElement.ArmyManager) return TaskStatus.Running;
+        if (!m_ArmyElement.ArmyManager) return TaskStatus.Running;
 
         float enemyDistance = 0;
-        //ArmyManagerRed armyRed = m_ArmyElement.ArmyManager as ArmyManagerRed;
+        ArmyManagerRed armyRed = m_ArmyElement.ArmyManager as ArmyManagerRed;
         //Drone drone = armyRed.GetElement<Drone>();
 
         // Calculer la distance entre l'ennemi et l'objet qui exécute l'action
-        if (target != null) enemyDistance = Vector3.Distance(transform.position, target.Value.position);
+        if (target.Value != null)
+        {
+            enemyDistance = Vector3.Distance(transform.position, target.Value.position);
+        }
+        
 
         // Si l'ennemi est à la distance spécifiée, terminer l'action avec succès
         if (enemyDistance <= maxDistance) return TaskStatus.Success;
