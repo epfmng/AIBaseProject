@@ -22,7 +22,9 @@ Naturellement, nous nous étions rendus compte qu'il n'est pas optimisés que le
 
 A partir de ce point, nos deux stratégies se séparent : l'une est limitée à ce qui a été dit précédemment (on l'appellera stratégie "SIMPLE"), l'autre implémente d'autres éléments (on l'appellera "ADVANCED"). Il y a cependant une précision sur le ciblage des ennemis les plus proche : ADVANCED utilise un script qui choisit l'ennemi le plus proche, SIMPLE choisit aléatoirement dans une tranche de distance, qui augmente si aucune cible n'est trouvée. Cette différence a le résultat suivant : sous ADVANCED, les drones ont tendance à tous cibler les mêmes tourelles, alors que sous SIMPLE, les drones ont un peu plus tendance à se répartir. Cela a des avantages pour SIMPLE : les drones séparés sont moins vulnérables aux dégâts de zones des tourelles, et font perdre plus de temps aux drones verts qui changent de cible après chaque tir (si les drones rouges sont moins groupés, les drones verts perdent plus de temps). De plus, cette répartition des drones sur les tourelles ennemis réduit l'"overkill" par rapport à ADVANCED.
 
-ADVANCED répond en plus à une autre problématique : les drones tirent, puis ils attendent une à deux secondes, puis ils se déplacent, jusqu'à leur cible, puis ils tirent de nouveau. Nous avons considéré qu'il n'était pas contre les règles de l'exercice de permettre au drone de se déplacer pendant le cooldown de son arme, donc nous l'avons implémenté. Pour ce faire, nous avons rendu les logiques de déplacement et les logiques de tir complètement indépendantes.
+ADVANCED répond en plus à une autre problématique : les drones tirent, puis ils attendent une à deux secondes, puis ils se déplacent jusqu'à leur cible, puis ils tirent de nouveau. Nous avons considéré qu'il n'était pas contre les règles de l'exercice de permettre au drone de se déplacer pendant le cooldown de son arme, donc nous l'avons implémenté. Pour ce faire, nous avons rendu les logiques de déplacement et les logiques de tir complètement indépendantes.
+
+ADVANCED comprend aussi un ciblage par distance qui priorise les tourelles les plus éloignées car les drones auront d'avantage de difficulté à les atteindre.
 
 # Arbres de comportement :
 
@@ -33,8 +35,13 @@ ADVANCED répond en plus à une autre problématique : les drones tirent, puis i
 
 # Remarques :
 ## Limitations :
-## Bugs connus : 
+
+## Bugs connus :
+Pour les deux stratégies, les drones ont tendance à se bloquer dans le relief du mesh. S'ils doivent se rendre sur un point en hauteur (par exemple si ils ciblent une tourelle du fond), ils ont tendance à se déplacer pas par pas, ce qui les ralentit sensiblement.
+
 ## Voies d'amélioration :
+Nous n'avons pas exploré gestion de comportements au niveau de l'armée qui pourrait notamment être utile pour réduire l'overkill des tourelles.
+
 
 # Répartition de la production :
 ## Behavior Tree :
