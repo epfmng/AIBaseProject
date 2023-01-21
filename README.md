@@ -43,11 +43,9 @@ Pour les deux stratégies, les drones ont tendance à se bloquer dans le relief 
 Nous n'avons pas exploré gestion de comportements au niveau de l'armée qui pourrait notamment être utile pour réduire l'overkill des tourelles.
 
 # Résultats :
-## Simple
-[Simple.tsv](https://github.com/epfmng/AIBaseProject\Results\simple)
+[simple.tsv](simple.tsv)
 
-## Advanced
-[Advanced.tsv](https://github.com/epfmng/AIBaseProject\Results\advanced)
+[advanced.tsv](advanced.tsv)
 
 # Répartition de la production :
 ## Behavior Tree :
