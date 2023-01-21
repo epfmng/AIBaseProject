@@ -43,6 +43,8 @@ Pour les deux stratégies, les drones ont tendance à se bloquer dans le relief 
 Nous n'avons pas exploré gestion de comportements au niveau de l'armée qui pourrait notamment être utile pour réduire l'overkill des tourelles.
 
 # Résultats :
+Les fichiers suivants correspondent à un échantillon de 20 batailles pour un point de vue de la stratégie employée. 
+
 [simple.tsv](simple.tsv)
 
 [advanced.tsv](advanced.tsv)
