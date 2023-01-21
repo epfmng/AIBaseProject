@@ -44,10 +44,10 @@ Nous n'avons pas exploré gestion de comportements au niveau de l'armée qui pou
 
 # Résultats :
 ## Simple
-[Simple.tsv](Results\Statistics Battles IA - SIMPLE - Results.tsv)
+[Simple.tsv](https://github.com/epfmng/AIBaseProject\Results\simple)
 
 ## Advanced
-[Advanced.tsv](Results\Statistics Battles IA - ADVANCED - Results.tsv)
+[Advanced.tsv](https://github.com/epfmng/AIBaseProject\Results\advanced)
 
 # Répartition de la production :
 ## Behavior Tree :
