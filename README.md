@@ -42,6 +42,12 @@ Pour les deux stratégies, les drones ont tendance à se bloquer dans le relief 
 ## Voies d'amélioration :
 Nous n'avons pas exploré gestion de comportements au niveau de l'armée qui pourrait notamment être utile pour réduire l'overkill des tourelles.
 
+# Résultats :
+## Simple
+[Simple.tsv](Results\Statistics Battles IA - SIMPLE - Results.tsv)
+
+## Advanced
+[Advanced.tsv](Results\Statistics Battles IA - ADVANCED - Results.tsv)
 
 # Répartition de la production :
 ## Behavior Tree :
